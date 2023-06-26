@@ -1,0 +1,12 @@
+import:
+  - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
+
+window:
+  opacity: 0.95
+
+font: 
+  normal:
+    family: JetBrainsMonoNL NF
+    style: Regular
+env:
+  TERM: xterm-256color
