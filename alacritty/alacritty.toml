@@ -8,4 +8,4 @@ family = "JetBrainsMonoNL NF"
 style = "Regular"
 
 [window]
-opacity = 0.95
+opacity = 1.0
