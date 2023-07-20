@@ -1,0 +1,11 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = Moritz
+  email = moritz@birdyapps.net
+[push]
+  autoSetupRemote=true
+[core]
+  editor = nvim
+[includeIf "gitdir:~/Documents/Lotus/"]
+  path = ~/.gitconfig-lotus
