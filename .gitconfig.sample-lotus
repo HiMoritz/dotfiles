@@ -1,5 +1,0 @@
-[user]
-name = Moritz | modev
-email = moritz@birdyapps.net
-[core]
-sshCommand = "ssh -i ~/.ssh/id_lotus"
