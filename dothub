@@ -1,0 +1,59 @@
+#!/bin/env bash
+
+export WORKDIR=$(pwd)
+
+name="DotHUB"
+version="0.1"
+
+cli_help() {
+        echo "
+DotHUB - dotfile management cli
+
+Usage: dothub [command]
+
+Commands: 
+  install       install required applications 
+  configure     copies available configuration files"
+        
+        exit 1
+}
+
+if [ $# -eq 0 ]
+then 
+        cli_help
+fi
+
+KNOWN_COMMANDS="debug help"
+
+SCRIPTS="$(find  './scripts' -maxdepth 1 -executable -type f -print | awk '{ n = split($0, a, "/"); print a[n]}')"
+SCRIPT_COMMANDS="$(echo $SCRIPTS | awk -F "." '{ print $1 }')"
+COMMAND_LIST="$(echo $KNOWN_COMMANDS $SCRIPT_COMMANDS | tr " " "\n")"
+
+if echo $COMMAND_LIST | grep -wq $1 
+then
+        echo ""
+else
+        cli_help
+fi
+
+
+# handle basic commands
+
+if [[ $1 == *"debug" ]]
+then
+        echo "
+DEBUG INFO
+
+Available Scripts:
+${SCRIPTS}
+
+Script Commands
+${SCRIPT_COMMANDS}
+
+Command List
+${COMMAND_LIST}
+
+Workdir
+${WORKDIR}
+"
+fi
