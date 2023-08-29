@@ -1,5 +1,5 @@
 require("lazy").setup({
-	{	
+	{
 		'nvim-telescope/telescope.nvim', tag = '0.1.2',
 		dependencies = { 'nvim-lua/plenary.nvim' }
 	},
@@ -20,5 +20,11 @@ require("lazy").setup({
 			{'hrsh7th/cmp-nvim-lsp'}, -- Required
 			{'L3MON4D3/LuaSnip'},     -- Required
 		}
-	}
+	},
+    {
+            -- amongst your other plugins
+        {'akinsho/toggleterm.nvim', version = "*", config = true},
+            -- or
+        {'akinsho/toggleterm.nvim', version = "*", opts = {--[[ things you want to change go here]]}}
+    }
 })
