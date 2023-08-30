@@ -16,4 +16,8 @@ _G._toggle_lazygit = function()
             print("lazygit not available in path")
 	end
 end
-vim.keymap.set("n", "<leader>gg", function() _toggle_lazygit() end)
+
+
+_G._toggle_relative_lines = function()
+        vim.opt.relativenumber = not vim.o.relativenumber 
+end

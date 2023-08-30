@@ -11,9 +11,9 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend(lazypath)
-
 require("himoritz.remap")
 require("himoritz.lazy")
 require("himoritz.colors")
 require("himoritz.set")
 require("himoritz.util")
+require("himoritz.keymap")
