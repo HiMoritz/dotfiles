@@ -7,3 +7,7 @@ end)
 vim.keymap.set("n", "<leader>nr", function() 
         _toggle_relative_lines()
 end)
+
+vim.keymap.set("n", "<leader>F", function ()
+  vim.lsp.buf.format() 
+end)
