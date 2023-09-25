@@ -17,7 +17,7 @@ _G._toggle_lazygit = function()
 	end
 end
 
-
+vim.opt.relativenumber = true
 _G._toggle_relative_lines = function()
         vim.opt.relativenumber = not vim.o.relativenumber 
 end
