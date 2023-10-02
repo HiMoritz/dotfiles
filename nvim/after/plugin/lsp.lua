@@ -1,9 +1,15 @@
 local lsp = require("lsp-zero").preset("recommended")
+local util = require("lspconfig.util")
+
 lsp.on_attach(function(client, buffnr)
 	lsp.default_keymaps({buffer = buffnr})
 end)
 
 lsp.ensure_installed({"eslint", "tsserver", "gopls", "lua_ls"})
+
+require("lspconfig").tsserver.setup({
+  root_dir = util.root_pattern("package.json",".git")
+})
 
 lsp.setup()
 
