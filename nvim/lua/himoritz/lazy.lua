@@ -2,7 +2,24 @@ require("lazy").setup({
   {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.2',
-    dependencies = { 'nvim-lua/plenary.nvim' }
+    dependencies = { 'nvim-lua/plenary.nvim', {'nvim-telescope/telescope-fzf-native.nvim', build = 'make'}, 'nvim-tree/nvim-web-devicons'},
+    config = function ()
+      local telescope = require('telescope')
+      local actions = require('telescope.actions')
+      telescope.setup({
+        defaults = {
+          mappings = {
+            i = {
+              ["<C-k>"] = actions.move_selection_previous,
+              ["<C-j>"] = actions.move_selection_next,
+              ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist
+            }
+          }
+        }
+      })
+
+      telescope.load_extension("fzf")
+    end
   },
   { "catppuccin/nvim",                 name = "catppuccin", priority = 1000,    lazy = false },
   { "nvim-treesitter/nvim-treesitter", lazy = false,        build = ":TSUpdate" },
@@ -41,5 +58,9 @@ require("lazy").setup({
     event = { "CmdlineEnter" },
     ft = { "go", 'gomod' },
     build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
+  },
+  {
+    "stevearc/dressing.nvim",
+    lazy = "VeryLazy"
   }
 })
