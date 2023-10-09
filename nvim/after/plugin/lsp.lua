@@ -1,5 +1,7 @@
 local lsp = require("lsp-zero").preset("recommended")
 local util = require("lspconfig.util")
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 lsp.on_attach(function(client, buffnr)
 	lsp.default_keymaps({buffer = buffnr})
@@ -9,6 +11,11 @@ lsp.ensure_installed({"eslint", "tsserver", "gopls", "lua_ls"})
 
 require("lspconfig").tsserver.setup({
   root_dir = util.root_pattern("package.json",".git")
+})
+
+require("lspconfig").emmet_ls.setup({
+  capabilities = capabilities,
+  filetypes = { "css", "html", ".html.tpl", ".html.templ", "smarty" }
 })
 
 lsp.setup()
