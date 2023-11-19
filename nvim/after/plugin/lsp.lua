@@ -7,7 +7,7 @@ lsp.on_attach(function(client, buffnr)
 	lsp.default_keymaps({buffer = buffnr})
 end)
 
-lsp.ensure_installed({"eslint", "tsserver", "gopls", "lua_ls"})
+lsp.ensure_installed({"eslint", "tsserver", "gopls", "lua_ls", "tailwindcss"})
 
 require("lspconfig").tsserver.setup({
   root_dir = util.root_pattern("package.json",".git")
@@ -40,5 +40,8 @@ cmp.setup({
     { name = 'nvim_lsp' },
     { name = 'buffer' },
     { name = 'path' }
-  })
+  }),
+  formatting = {
+    format = require("tailwindcss-colorizer-cmp").formatter
+  }
 })

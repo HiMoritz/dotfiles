@@ -2,8 +2,8 @@ require("lazy").setup({
   {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.2',
-    dependencies = { 'nvim-lua/plenary.nvim', {'nvim-telescope/telescope-fzf-native.nvim', build = 'make'}, 'nvim-tree/nvim-web-devicons'},
-    config = function ()
+    dependencies = { 'nvim-lua/plenary.nvim', { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' }, 'nvim-tree/nvim-web-devicons' },
+    config = function()
       local telescope = require('telescope')
       local actions = require('telescope.actions')
       telescope.setup({
@@ -61,6 +61,14 @@ require("lazy").setup({
   },
   {
     "stevearc/dressing.nvim",
-    lazy = "VeryLazy"
+  },
+  {
+    "roobert/tailwindcss-colorizer-cmp.nvim",
+    config = function()
+      print('should be loaded')
+      require("tailwindcss-colorizer-cmp").setup({
+        color_square_width = 2,
+      })
+    end
   }
 })
