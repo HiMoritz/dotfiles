@@ -11,3 +11,7 @@ end)
 vim.keymap.set("n", "<leader>F", function ()
   vim.lsp.buf.format() 
 end)
+
+vim.keymap.set("n", "<leader>ca", function ()
+  vim.lsp.buf.code_action()
+end)
