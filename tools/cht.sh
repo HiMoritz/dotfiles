@@ -3,7 +3,7 @@
 languages=$(echo "golang lua typescript java nodejs javascript" | tr " " "\n")
 coreutils=$(echo "xargs find mv sed awk tar" | tr " " "\n")
 
-selected=$(printf "$languages\n$coreutils" | fzf)
+selected=$(printf "$languages\n$coreutils" | fzf --reverse --border)
 echo Searching $selected
 
 if [ -z $selected ]; then 

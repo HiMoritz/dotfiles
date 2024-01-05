@@ -8,6 +8,11 @@ require("lazy").setup({
       local actions = require('telescope.actions')
       telescope.setup({
         defaults = {
+          layout_strategy = "horizontal",
+          sorting_strategy = "ascending",
+          layout_config = {
+            prompt_position = "top"
+          },
           mappings = {
             i = {
               ["<C-k>"] = actions.move_selection_previous,
