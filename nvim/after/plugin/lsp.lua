@@ -9,6 +9,12 @@ end)
 
 lsp.ensure_installed({"eslint", "tsserver", "gopls", "lua_ls", "tailwindcss"})
 
+require("mason").setup({
+  ui = {
+    border = "rounded"
+  }
+})
+
 require("lspconfig").tsserver.setup({
   root_dir = util.root_pattern("package.json",".git")
 })
@@ -43,5 +49,11 @@ cmp.setup({
   }),
   formatting = {
     format = require("tailwindcss-colorizer-cmp").formatter
+  },
+  window = {
+    documentation = cmp.config.window.bordered(),
+    completion = cmp.config.window.bordered({
+        winhighlight = 'Normal:CmpPmenu,CursorLine:PmenuSel,Search:None'
+    }),
   }
 })
